@@ -19,4 +19,15 @@ class List
     end
     sum
   end
+
+  def to_s
+    cursor = @head
+    output = ''
+    until cursor.nil?
+      output << "#{cursor.value}"
+      output << ' - ' if cursor.rest
+      cursor = cursor.rest
+    end
+    output
+  end
 end
