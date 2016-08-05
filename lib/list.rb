@@ -1,6 +1,8 @@
 require 'link'
+require 'errors'
 
 class List
+
   def initialize(*items)
     @head = cursor = nil
 
@@ -33,4 +35,17 @@ class List
 
     return_value
   end
+
+  def [](index)
+    raise IndexOutOfBoundsException.new(index) if index >= length
+    cursor = @head
+    count = 0
+
+    while count < index
+      count += 1
+      cursor = cursor.rest
+    end
+    cursor.value
+  end
+
 end
