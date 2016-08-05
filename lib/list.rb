@@ -11,23 +11,26 @@ class List
   end
 
   def length
-    cursor = @head
-    sum = 0
-    until cursor.nil?
-      sum += 1
-      cursor = cursor.rest
+    each_with_object(0) do |link, length_so_far|
+      length_so_far += 1
     end
-    sum
   end
 
   def to_s
+    each_with_object('') do |link, output_string|
+      connector = ' - ' unless link.rest.nil?
+      output_string << "#{link.value}#{connector}"
+    end
+  end
+
+  def each_with_object(init_value)
     cursor = @head
-    output = ''
+    return_value = init_value
     until cursor.nil?
-      output << "#{cursor.value}"
-      output << ' - ' if cursor.rest
+      return_value = yield(cursor, return_value)
       cursor = cursor.rest
     end
-    output
+
+    return_value
   end
 end
