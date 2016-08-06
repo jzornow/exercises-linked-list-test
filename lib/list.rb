@@ -52,4 +52,11 @@ class List
     cursor.value
   end
 
+  def slow_middle
+    raise NoMiddleException.new if empty?
+    # Full Pass + Half Pass => O(3n/2)
+    middle_index = ((length - 1)/2.0).floor # Full Pass
+    self[middle_index] # Half Pass
+  end
+
 end

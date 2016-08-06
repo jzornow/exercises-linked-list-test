@@ -3,3 +3,5 @@ class IndexOutOfBoundsException < StandardError
     super("Index #{index} is beyond the bounds of this list.")
   end
 end
+
+class NoMiddleException < StandardError; end
