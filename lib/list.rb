@@ -59,4 +59,14 @@ class List
     self[middle_index] # Half Pass
   end
 
+  def fast_middle
+    raise NoMiddleException.new if empty?
+    fast_cursor = @head.rest
+    slow_cursor = @head
+    until fast_cursor.nil? || fast_cursor.rest.nil?
+      fast_cursor = fast_cursor.rest.rest
+      slow_cursor = slow_cursor.rest
+    end
+    slow_cursor.value
+  end
 end

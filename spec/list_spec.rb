@@ -1,4 +1,6 @@
 require 'list'
+require 'middle_method_specs'
+include MiddleMethodSpecs
 
 # To solve https://coderbyte.com/algorithm/linked-list-middle-element
 
@@ -65,23 +67,9 @@ RSpec.describe 'empty?' do
 end
 
 RSpec.describe 'slow_middle' do
-  context 'on an empty list' do
-    it 'raises no middle exception' do
-      list = List.new
-      expect { list.slow_middle }.to raise_error(NoMiddleException)
-    end
-  end
-  context 'on a list with an odd number of elements' do
-    it 'returns the middle element' do
-      list = List.new 1, 2, 3
-      expect(list.slow_middle).to eq 2
-    end
-  end
-  context ' on a list with an even number of elements' do
-    it 'returns the element before the center' do
-      list = List.new 1, 2, 3, 4
-      expect(list.slow_middle).to eq 2
-    end
-  end
+  middle_method_specs(:slow_middle)
 end
 
+RSpec.describe 'fast_middle' do
+  middle_method_specs(:fast_middle)
+end
