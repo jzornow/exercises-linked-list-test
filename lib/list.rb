@@ -36,6 +36,10 @@ class List
     return_value
   end
 
+  def empty?
+    @head.nil?
+  end
+
   def [](index)
     raise IndexOutOfBoundsException.new(index) if index >= length
     cursor = @head

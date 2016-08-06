@@ -50,3 +50,16 @@ RSpec.describe '[]' do
     end
   end
 end
+
+RSpec.describe 'empty?' do 
+  context 'on an empty list' do
+    it 'returns true' do
+      expect(List.new.empty?).to eq true
+    end
+  end
+  context 'on a list with elements' do
+    it 'returns false' do
+      expect(List.new(1, 2, 3).empty?).to eq false
+    end
+  end
+end
