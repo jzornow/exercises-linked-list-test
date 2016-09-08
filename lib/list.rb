@@ -1,5 +1,5 @@
-require 'link'
-require 'errors'
+require_relative 'link'
+require_relative 'errors'
 
 class List
 
