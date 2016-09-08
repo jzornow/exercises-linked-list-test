@@ -2,8 +2,6 @@ require 'list'
 require 'middle_method_specs'
 include MiddleMethodSpecs
 
-# To solve https://coderbyte.com/algorithm/linked-list-middle-element
-
 RSpec.describe '#length' do
   context 'with no links' do
     it 'returns 0' do
